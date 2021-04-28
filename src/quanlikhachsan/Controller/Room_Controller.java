@@ -89,7 +89,19 @@ public class Room_Controller {
         addRoom_view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                try {
+                    int fixRoom = addRoom_view.tableRoom.getSelectedRow();
+                    String st1 = (String) dtm.getValueAt(fixRoom, 0);
+                    String st2 = (String) dtm.getValueAt(fixRoom, 1);
+                    String st3 = (String) dtm.getValueAt(fixRoom, 2);
+                    String st4 = (String) dtm.getValueAt(fixRoom, 3);
+                    String st5 = (String) dtm.getValueAt(fixRoom, 4);
+                    String st6 = (String) dtm.getValueAt(fixRoom, 5);
+                    quanlikhachsan.Controller.fixRoom_Controller fixroom_controller = new fixRoom_Controller(st1, st2, st3, st4, st5, st6);
+                    fixroom_controller.room_controller = Room_Controller.this;
+                }catch(Exception ea) {
+                    showMess("Bạn phải chọn 1 hàng");
+                }
             }
         }, addRoom_view.btn_fixRoom);
     }
