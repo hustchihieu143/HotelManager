@@ -30,7 +30,7 @@ public class Customer_Controller {
     
     public Customer_Controller() {
         addCustomerButtonAL();
-        showAllCustomer();
+        //showAllCustomer();
         deleteCustomerButtonAL();
         fixCustomerButtonAL();
         resetCustomerButtonAL();

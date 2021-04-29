@@ -73,7 +73,7 @@ public class Main_Controller {
         main_view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //new service_Controller();
+                new service_Controller();
             }
         }, main_view.btn_service);
     }

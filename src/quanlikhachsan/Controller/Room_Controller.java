@@ -30,11 +30,11 @@ public class Room_Controller {
     
     public Room_Controller() {
         addButtonAL();
-        showAll();
         resetData();
         deleteButtonAL();
         fixButtonAl();
         searchRoomById();
+        showAll();
         showAllRoom();
         showRoomEmpty();
     }
