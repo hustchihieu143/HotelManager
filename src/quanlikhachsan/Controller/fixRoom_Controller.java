@@ -31,6 +31,7 @@ public class fixRoom_Controller {
         fixRoom_view.cbb_statusRoom.setSelectedItem(st5);
         fixRoom_view.txt_noteRoom.setText(st6);
         updateButtonAl();
+        resetData();
     }
     
     public void updateButtonAl() {
@@ -68,6 +69,24 @@ public class fixRoom_Controller {
         }catch(Exception e) {
             showMess("Phòng đã tồn tại");
         }
+    }
+    
+    public void resetData() {
+        fixRoom_view.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    //fixRoom_view.txt_roomID.setText("");
+                    fixRoom_view.txt_noteRoom.setText("");
+                    fixRoom_view.txt_priceRoom.setText("");
+                    fixRoom_view.cbb_kindRoom.setSelectedItem("Thường");
+                    fixRoom_view.cbb_statusRoom.setSelectedItem("Trống");
+                    fixRoom_view.cbb_typeRoom.setSelectedItem("Đơn");
+                }catch(Exception ea) {
+                    
+                }
+            }
+        }, fixRoom_view.btn_resetRoom);
     }
     
     public void showMess(String st) {

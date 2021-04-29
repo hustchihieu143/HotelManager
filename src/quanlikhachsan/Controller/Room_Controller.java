@@ -7,6 +7,8 @@ package quanlikhachsan.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -32,6 +34,9 @@ public class Room_Controller {
         resetData();
         deleteButtonAL();
         fixButtonAl();
+        searchRoomById();
+        showAllRoom();
+        showRoomEmpty();
     }
     
     public void addButtonAL() {
@@ -106,6 +111,42 @@ public class Room_Controller {
         }, addRoom_view.btn_fixRoom);
     }
     
+    public void searchRoomById() {
+        addRoom_view.txt_ActionListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String room = addRoom_view.txt_searchRoom.getText();
+                dtm.setRowCount(0);
+                stm = null;
+                rs = null;
+                String sql = "select * from phong where maphong = '" + room + "'";
+                try {
+                    stm = cnn.createStatement();
+                    rs = stm.executeQuery(sql);
+                    while(rs.next()) {
+                        dtm.addRow(new Object[] {
+                            rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)
+                        });
+                    }
+                } catch(Exception ea) {
+                    
+                }
+            }
+        }, addRoom_view.txt_searchRoom);
+    }
+    
+    
+    
     public void insert_room_into_database(String st1, String st2, String st3, int st4, String st5, String st6) {
         String sql = "INSERT INTO phong VALUES('" + st1 + "',N'" + st2 + "',N'" + st3 + "',"
                 + st4 + ",N'" + st5 + "',N'" + st6 + "')";
@@ -130,6 +171,38 @@ public class Room_Controller {
                 addRoom_view.txt_noteRoom.setText("");
             }
         }, addRoom_view.btn_resetRoom);
+    }
+    
+    public void showAllRoom() {
+        addRoom_view.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showAll();
+            }
+        }, addRoom_view.btn_showAll);
+    }
+    
+    public void showRoomEmpty() {
+        addRoom_view.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stm = null;
+                rs = null;
+                dtm.setRowCount(0);
+                String sql = "select * from phong where trangthai = N'Trống'";
+                try {
+                    stm = cnn.createStatement();
+                    rs = stm.executeQuery(sql);
+                    while(rs.next()) {
+                        dtm.addRow(new Object[] {
+                            rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)
+                        });
+                    }
+                }catch(Exception ea) {
+                    System.out.println(ea.getMessage());
+                }
+            }
+        }, addRoom_view.btn_searchEmptyRoom);
     }
     
     public void showAll() {
