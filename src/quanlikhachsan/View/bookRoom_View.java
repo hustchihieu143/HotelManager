@@ -461,4 +461,8 @@ public class bookRoom_View extends javax.swing.JFrame {
     public javax.swing.JTextField txt_searchName;
     public javax.swing.JTextField txt_searchPhoneNumber;
     // End of variables declaration//GEN-END:variables
+
+    public void addActionListener(KeyListener keyListener) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

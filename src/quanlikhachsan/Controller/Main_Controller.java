@@ -64,7 +64,7 @@ public class Main_Controller {
         main_view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-               // new quanlikhachsan.Controller.bookRoom_Controller();
+                new quanlikhachsan.Controller.bookRoom_Controller();
             }
         }, main_view.btn_bookRoom);
     }
@@ -82,7 +82,7 @@ public class Main_Controller {
         main_view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                //new CheckIn_Controller();
+                new CheckIn_Controller();
             }
         }, main_view.btn_checkIn);
     }
