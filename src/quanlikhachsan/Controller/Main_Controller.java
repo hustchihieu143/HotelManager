@@ -34,8 +34,7 @@ public class Main_Controller {
         logOutLabelAL();
         staffButtonAL();
         checkOutButtonAL();
-        statisticalButtonAL();
-      
+        statisticalButtonAL(); 
     }
 
     public void listRoomButtonAL() {
@@ -91,7 +90,7 @@ public class Main_Controller {
         main_view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-               // new useService_Controller();
+                new useService_Controller();
             }
         }, main_view.btn_useService);
     }
